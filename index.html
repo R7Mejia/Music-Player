@@ -14,7 +14,7 @@
 
 <body>
     <div class="header">
-        <p>This app is intented for those momments like while going on a plane when you want to listen to music without interruptions, and/or where internet connectivity is limited.</p>
+        <p class="header-text">This app is intended for those moments like while going on a plane when you want to listen to music without interruptions, and/or where internet connectivity is limited.</p>
     </div>
     <div class="container">
         <!-- Music Player Section -->
@@ -38,6 +38,15 @@
                     <div class="player-display-song-artist">
                         <p id="player-song-title"></p>
                         <p id="player-song-artist"></p>
+                    </div>
+                    <div class="progress-section">
+                        <div class="time-display">
+                            <span id="current-time">0:00</span>
+                            <span id="duration">0:00</span>
+                        </div>
+                        <div id="progress-container" class="progress-container">
+                            <div id="progress-bar" class="progress-bar"></div>
+                        </div>
                     </div>
                     <div class="player-buttons">
                         <button id="previous" class="previous" aria-label="Previous">
@@ -70,6 +79,10 @@
                         </button>
                     </div>
                 </div>
+            </div>
+            <div class="background-selector">
+                <label for="background-select">Background:</label>
+                <select id="background-select"></select>
             </div>
         </div>
 
@@ -171,6 +184,15 @@
             <div class="video-header">
                 <h3 id="video-title">Video Title</h3>
                 <button id="close-video-btn" class="close-video-btn">&times;</button>
+            </div>
+            <div class="video-progress-section">
+                <div class="time-display">
+                    <span id="video-current-time">0:00</span>
+                    <span id="video-duration">0:00</span>
+                </div>
+                <div id="video-progress-container" class="progress-container">
+                    <div id="video-progress-bar" class="progress-bar"></div>
+                </div>
             </div>
             <video id="video-player" controls>
                 Your browser does not support the video tag.
