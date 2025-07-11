@@ -113,15 +113,27 @@ export class VideoPlayer {
   }
 
   saveVideoList() {
-    localStorage.setItem('videoPlayerData', JSON.stringify(this.videoList));
+    const storageKey = `videoPlayerData_${this.getUserId()}`;
+    localStorage.setItem(storageKey, JSON.stringify(this.videoList));
   }
 
   loadVideoList() {
-    const saved = localStorage.getItem('videoPlayerData');
+    const storageKey = `videoPlayerData_${this.getUserId()}`;
+    const saved = localStorage.getItem(storageKey);
     if (saved) {
       this.videoList = JSON.parse(saved);
       this.renderVideoList();
     }
+  }
+
+  getUserId() {
+    // Generate or retrieve unique user ID for privacy
+    let userId = localStorage.getItem('musicPlayerUserId');
+    if (!userId) {
+      userId = 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+      localStorage.setItem('musicPlayerUserId', userId);
+    }
+    return userId;
   }
 
   renderVideoList() {
