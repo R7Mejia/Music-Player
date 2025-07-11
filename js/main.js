@@ -39,6 +39,7 @@ class MusicPlayerApp {
     window.audioPlayerInstance = this.audioPlayer;
     window.uiManagerInstance = this.uiManager;
     window.videoPlayerInstance = this.videoPlayer;
+    window.backgroundManager = this.backgroundManager;
 
     // Global functions for HTML onclick handlers
     window.playSong = (id) => {
