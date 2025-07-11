@@ -11,42 +11,40 @@ export class UIManager {
   }
 
   setupTabNavigation() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
         const targetTab = button.dataset.tab;
-        
+
         // Remove active class from all tabs and contents
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabContents.forEach((content) => content.classList.remove("active"));
+
         // Add active class to clicked tab and corresponding content
-        button.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
+        button.classList.add("active");
+        document.getElementById(targetTab).classList.add("active");
       });
     });
   }
 
   setupPlayerControls() {
-    const playButton = document.getElementById("play");
-    const pauseButton = document.getElementById("pause");
+    const playPauseButton = document.getElementById("play-pause");
     const nextButton = document.getElementById("next");
     const previousButton = document.getElementById("previous");
     const shuffleButton = document.getElementById("shuffle");
 
-    playButton?.addEventListener("click", () => {
-      if (this.audioPlayer.userData?.currentSong === null) {
-        this.audioPlayer.playSong(this.audioPlayer.userData?.songs[0]?.id);
+    playPauseButton?.addEventListener("click", () => {
+      if (this.audioPlayer.audio.paused) {
+        if (this.audioPlayer.userData?.currentSong === null) {
+          this.audioPlayer.playSong(this.audioPlayer.userData?.songs[0]?.id);
+        } else {
+          this.audioPlayer.playSong(this.audioPlayer.userData?.currentSong.id);
+        }
       } else {
-        this.audioPlayer.playSong(this.audioPlayer.userData?.currentSong.id);
+        this.audioPlayer.pauseSong();
       }
-      this.updatePlayerDisplay();
-    });
-
-    pauseButton?.addEventListener("click", () => {
-      this.audioPlayer.pauseSong();
       this.updatePlayerDisplay();
     });
 
@@ -69,7 +67,8 @@ export class UIManager {
     // Audio ended event
     this.audioPlayer.audio.addEventListener("ended", () => {
       const currentSongIndex = this.audioPlayer.getCurrentSongIndex();
-      const nextSongExists = this.audioPlayer.userData?.songs[currentSongIndex + 1] !== undefined;
+      const nextSongExists =
+        this.audioPlayer.userData?.songs[currentSongIndex + 1] !== undefined;
 
       if (nextSongExists) {
         this.audioPlayer.playNextSong();
@@ -85,25 +84,44 @@ export class UIManager {
   updatePlayerDisplay() {
     const playingSong = document.getElementById("player-song-title");
     const songArtist = document.getElementById("player-song-artist");
-    const playButton = document.getElementById("play");
-    
+    const playPauseButton = document.getElementById("play-pause");
+
     const currentTitle = this.audioPlayer.userData?.currentSong?.title;
     const currentArtist = this.audioPlayer.userData?.currentSong?.artist;
 
     if (playingSong) playingSong.textContent = currentTitle || "";
     if (songArtist) songArtist.textContent = currentArtist || "";
 
-    // Update play button state
-    if (playButton) {
+    // Update play-pause button state
+    if (playPauseButton) {
       if (this.audioPlayer.audio.paused) {
-        playButton.classList.remove("playing");
+        playPauseButton.classList.remove("playing");
       } else {
-        playButton.classList.add("playing");
+        playPauseButton.classList.add("playing");
       }
     }
 
     this.highlightCurrentSong();
-    this.setPlayButtonAccessibleText();
+    this.setPlayPauseButtonAccessibleText();
+  }
+
+  setPlayPauseButtonAccessibleText() {
+    const playPauseButton = document.getElementById("play-pause");
+    const song =
+      this.audioPlayer.userData?.currentSong ||
+      this.audioPlayer.userData?.songs[0];
+    if (playPauseButton) {
+      playPauseButton.setAttribute(
+        "aria-label",
+        song?.title
+          ? this.audioPlayer.audio.paused
+            ? `Play ${song.title}`
+            : `Pause ${song.title}`
+          : this.audioPlayer.audio.paused
+          ? "Play"
+          : "Pause"
+      );
+    }
   }
 
   highlightCurrentSong() {
@@ -121,8 +139,10 @@ export class UIManager {
 
   setPlayButtonAccessibleText() {
     const playButton = document.getElementById("play");
-    const song = this.audioPlayer.userData?.currentSong || this.audioPlayer.userData?.songs[0];
-    
+    const song =
+      this.audioPlayer.userData?.currentSong ||
+      this.audioPlayer.userData?.songs[0];
+
     if (playButton) {
       playButton.setAttribute(
         "aria-label",
@@ -163,12 +183,12 @@ export class UIManager {
       resetButton.textContent = "Reset Playlist";
       resetButton.id = "reset";
       resetButton.setAttribute("aria-label", "Reset playlist");
-      
+
       resetButton.addEventListener("click", () => {
         // This would need to be implemented based on your reset logic
         console.log("Reset playlist clicked");
       });
-      
+
       playlistSongs.appendChild(resetButton);
     }
   }

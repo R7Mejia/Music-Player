@@ -289,7 +289,7 @@ button:focus,
 }
 
 [aria-current="true"] {
-  background-image: url('../images/AudioWave1.gif');
+  background-image: url("../images/AudioWave1.gif");
   background-size: cover;
   background-position: center;
 }
@@ -381,6 +381,16 @@ button:focus,
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.play-pause .icon-pause {
+  display: none;
+}
+.play-pause.playing .icon-play {
+  display: none;
+}
+.play-pause.playing .icon-pause {
+  display: inline;
 }
 
 @media (max-width: 700px) {
