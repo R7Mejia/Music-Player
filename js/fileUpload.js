@@ -94,22 +94,10 @@ export class FileUploadManager {
   }
 
   addVideoToPlaylist(video) {
-    const videoList = document.getElementById('video-list');
-    const videoItem = document.createElement('div');
-    videoItem.className = 'video-item';
-    
-    videoItem.innerHTML = `
-      <div class="video-info">
-        <span class="video-title">${video.title}</span>
-        <span class="video-type">${video.type === 'url' ? 'URL' : 'File'}</span>
-      </div>
-      <div class="video-controls">
-        <button class="play-video-btn" onclick="playVideo('${video.src}', '${video.title}')">Play</button>
-        <button class="delete-video-btn" onclick="deleteVideo(this)">Delete</button>
-      </div>
-    `;
-    
-    videoList.appendChild(videoItem);
+    if (window.videoPlayerInstance) {
+      window.videoPlayerInstance.addVideoToList(video);
+      window.videoPlayerInstance.renderVideoList();
+    }
     this.showNotification(`Added video: ${video.title}`);
   }
 
