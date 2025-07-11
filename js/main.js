@@ -91,31 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Footer copyright logic
   const yearSpan = document.getElementById("footer-year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-  const copyrightSpan = document.getElementById("footer-copyright");
-  const copyrightInput = document.getElementById("copyright-input");
-  const editBtn = document.getElementById("edit-copyright-btn");
-  const saveBtn = document.getElementById("save-copyright-btn");
-
-  if (editBtn && copyrightInput && copyrightSpan && saveBtn) {
-    editBtn.addEventListener("click", () => {
-      copyrightInput.value = copyrightSpan.textContent;
-      copyrightInput.style.display = "inline-block";
-      saveBtn.style.display = "inline-block";
-      copyrightSpan.style.display = "none";
-      editBtn.style.display = "none";
-    });
-    saveBtn.addEventListener("click", () => {
-      copyrightSpan.textContent = copyrightInput.value || "Your Name";
-      copyrightInput.style.display = "none";
-      saveBtn.style.display = "none";
-      copyrightSpan.style.display = "inline";
-      editBtn.style.display = "inline-block";
-      localStorage.setItem("musicPlayerCopyright", copyrightInput.value);
-    });
-    // Load from storage
-    const saved = localStorage.getItem("musicPlayerCopyright");
-    if (saved) copyrightSpan.textContent = saved;
-  }
 
   // Settings modal logic
   const settingsBtn = document.getElementById("settings-btn");
@@ -124,14 +99,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageSelect = document.getElementById("language-select");
 
   if (settingsBtn && settingsModal && closeSettingsBtn) {
-    settingsBtn.addEventListener("click", () => {
+    settingsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       settingsModal.classList.add("active");
+      // Position modal below and right-aligned to the button
+      const btnRect = settingsBtn.getBoundingClientRect();
+      settingsModal.style.top = window.scrollY + btnRect.bottom + 8 + "px";
+      settingsModal.style.right = window.innerWidth - btnRect.right + "px";
     });
     closeSettingsBtn.addEventListener("click", () => {
       settingsModal.classList.remove("active");
     });
-    settingsModal.addEventListener("click", (e) => {
-      if (e.target === settingsModal) settingsModal.classList.remove("active");
+    document.addEventListener("click", (e) => {
+      if (!settingsModal.contains(e.target) && e.target !== settingsBtn) {
+        settingsModal.classList.remove("active");
+      }
     });
   }
 

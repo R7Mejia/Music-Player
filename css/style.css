@@ -86,6 +86,7 @@ ul {
   background-color: var(--background-color);
   border: 3px solid var(--foreground-color);
   min-height: 400px;
+  margin-bottom: 60px; /* Add space for footer */
 }
 
 .player-bar,
@@ -510,6 +511,7 @@ button:focus,
   justify-content: start;
   list-style: none;
   overflow-y: auto;
+  margin-bottom: 30px; /* Add space below the playlist */
 }
 
 .playlist-song {
@@ -633,6 +635,9 @@ button:focus,
   color: #fff;
   border: none;
   outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .play-pause svg {
   fill: #fff !important;
@@ -702,46 +707,34 @@ button:focus,
   height: 24px;
   fill: var(--primary-color);
 }
+
+/* Settings modal: show as dropdown near icon */
 .settings-modal {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 260px;
+  height: auto;
+  background: var(--background-color);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
   z-index: 9999;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border-radius: 10px;
+  padding: 0;
 }
 .settings-modal.active {
-  display: flex;
+  display: block;
 }
 .settings-modal-content {
-  background: var(--background-color);
+  background: none;
   color: var(--primary-color);
-  padding: 30px 40px;
+  padding: 20px 24px 16px 24px;
   border-radius: 10px;
-  min-width: 260px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-#language-select {
-  margin: 12px 0 18px 0;
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid var(--highlight-color);
-  background: var(--foreground-color);
-  color: var(--primary-color);
-}
-.close-settings-btn {
-  background: var(--foreground-color);
-  color: var(--primary-color);
-  border: 1px solid var(--highlight-color);
-  border-radius: 4px;
-  padding: 4px 16px;
-  cursor: pointer;
-  margin-top: 10px;
+  min-width: 200px;
+  box-shadow: none;
+  text-align: left;
 }
 
 @media (max-width: 700px) {
