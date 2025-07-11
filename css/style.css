@@ -688,7 +688,7 @@ button:focus,
   position: absolute;
   top: 18px;
   right: 18px;
-  z-index: 200;
+  z-index: 2000;
 }
 .settings-btn {
   background: var(--foreground-color);
@@ -718,7 +718,7 @@ button:focus,
   height: auto;
   background: var(--background-color);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  z-index: 3000;
   align-items: flex-start;
   justify-content: flex-end;
   border-radius: 10px;
