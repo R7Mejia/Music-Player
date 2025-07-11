@@ -284,10 +284,13 @@
             interruptions, and/or where internet connectivity is limited.
         </div>
         <div class="footer-copyright">
-            &copy; <span id="footer-year"></span> <span id="footer-copyright">Your Name</span>
-            <input type="text" id="copyright-input" placeholder="Change copyright" style="display:none;" />
+            &copy; <span id="footer-year"></span> <span id="footer-copyright">Roberto Mejia | Developer</span>
+            <script>
+                document.getElementById('footer-year').textContent = new Date().getFullYear();
+            </script>
+            <!-- <input type="text" id="copyright-input" placeholder="Change copyright" style="display:none;" />
             <button id="edit-copyright-btn" aria-label="Edit copyright">Edit</button>
-            <button id="save-copyright-btn" style="display:none;">Save</button>
+            <button id="save-copyright-btn" style="display:none;">Save</button> -->
         </div>
     </footer>
 
