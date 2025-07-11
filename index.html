@@ -88,8 +88,11 @@
                             </svg>
                         </button>
                         <button id="background-btn" class="background-btn" aria-label="Change Background">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" fill="currentColor"/>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+                                    fill="currentColor" />
                             </svg>
                         </button>
                     </div>
@@ -104,33 +107,57 @@
                     <h3>Choose Background</h3>
                     <button id="close-background-modal" class="close-background-btn">&times;</button>
                 </div>
-                
+
                 <div class="background-upload-section">
                     <div class="upload-methods">
                         <div class="upload-method">
                             <h4>Upload Image</h4>
                             <div class="upload-box-small">
                                 <input type="file" id="background-file-input" accept="image/*" multiple>
-                                <button class="upload-btn-small" onclick="document.getElementById('background-file-input').click()">
+                                <button class="upload-btn-small"
+                                    onclick="document.getElementById('background-file-input').click()">
                                     Choose Files
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div class="upload-method">
                             <h4>Add from URL</h4>
                             <div class="url-input-container-small">
-                                <input type="url" id="background-url-input" placeholder="Image URL" class="url-input-small">
+                                <input type="url" id="background-url-input" placeholder="Image URL"
+                                    class="url-input-small">
                                 <button id="add-background-url-btn" class="add-url-btn-small">Add</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="background-options-container">
                     <div id="background-options" class="background-options">
                         <!-- Background options will be rendered here -->
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Container -->
+        <div class="settings-container">
+            <button id="settings-btn" class="settings-btn" aria-label="Settings">
+                <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7Zm7.43-2.9c.04-.32.07-.65.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.6-.22l-2.49 1a7.03 7.03 0 0 0-1.7-.98l-.38-2.65A.5.5 0 0 0 13 2h-4a.5.5 0 0 0-.5.42l-.38 2.65c-.63.23-1.22.54-1.7.98l-2.49-1a.5.5 0 0 0-.6.22l-2 3.46a.5.5 0 0 0 .12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .6.22l2.49-1c.53.44 1.11.8 1.7.98l.38 2.65A.5.5 0 0 0 9 22h4a.5.5 0 0 0 .5-.42l.38-2.65c.63-.23 1.22-.54 1.7-.98l2.49 1a.5.5 0 0 0 .6-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65Z"
+                        fill="currentColor" />
+                </svg>
+            </button>
+            <div id="settings-modal" class="settings-modal">
+                <div class="settings-modal-content">
+                    <h3>Settings</h3>
+                    <label for="language-select">Language:</label>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button id="close-settings-btn" class="close-settings-btn">Close</button>
                 </div>
             </div>
         </div>
@@ -250,6 +277,19 @@
             </video>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-description">
+            This app is intended for those moments like while going on a plane when you want to listen to music without
+            interruptions, and/or where internet connectivity is limited.
+        </div>
+        <div class="footer-copyright">
+            &copy; <span id="footer-year"></span> <span id="footer-copyright">Your Name</span>
+            <input type="text" id="copyright-input" placeholder="Change copyright" style="display:none;" />
+            <button id="edit-copyright-btn" aria-label="Edit copyright">Edit</button>
+            <button id="save-copyright-btn" style="display:none;">Save</button>
+        </div>
+    </footer>
 
     <script type="module" src="js/main.js"></script>
 </body>
