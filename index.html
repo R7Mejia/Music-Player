@@ -168,6 +168,7 @@
             <div class="tab-navigation">
                 <button class="tab-btn active" data-tab="playlist-tab">Playlist</button>
                 <button class="tab-btn" data-tab="upload-tab">Upload Music</button>
+                <button class="tab-btn" data-tab="download-tab">Download Music</button>
                 <button class="tab-btn" data-tab="video-tab">Videos</button>
             </div>
 
@@ -208,6 +209,54 @@
                     </div>
                     <div class="supported-formats">
                         <p><strong>Supported formats:</strong> MP3, WAV, OGG, M4A, FLAC</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Music Tab -->
+            <div id="download-tab" class="tab-content">
+                <div class="download-section">
+                    <div class="download-header">
+                        <h2>Download Music</h2>
+                        <p>Find and download music legally from various sources</p>
+                    </div>
+
+                    <div class="download-methods">
+                        <!-- Search Legal Sources -->
+                        <div class="download-method">
+                            <h3>🔍 Search Legal Music Sources</h3>
+                            <p>Find legal download sources for your favorite songs</p>
+                            <div class="search-container">
+                                <input type="text" id="music-search-input" placeholder="Enter song name or artist" class="search-input">
+                                <button id="search-music-btn" class="search-btn">Search</button>
+                            </div>
+                            <div id="search-results" class="results-container">
+                                <!-- Search results will appear here -->
+                            </div>
+                        </div>
+
+                        <!-- URL to Audio Converter -->
+                        <div class="download-method">
+                            <h3>🔗 Add Audio URL</h3>
+                            <p>Add direct audio file URLs to your playlist</p>
+                            <div class="search-container">
+                                <input type="url" id="audio-url-input" placeholder="Paste direct audio URL (MP3, WAV, etc.)" class="url-input">
+                                <button id="convert-url-btn" class="convert-btn">Add URL</button>
+                            </div>
+                            <div id="url-guidance" class="results-container">
+                                <!-- URL guidance will appear here -->
+                            </div>
+                        </div>
+
+                        <!-- Free Music Sources -->
+                        <div class="download-method">
+                            <h3>🎵 Free Music Sources</h3>
+                            <p>Explore platforms with royalty-free and Creative Commons music</p>
+                            <button id="free-music-btn" class="free-music-browse-btn">Browse Free Music</button>
+                            <div id="free-music-list" class="results-container">
+                                <!-- Free music sources will appear here -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

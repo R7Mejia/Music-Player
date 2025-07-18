@@ -3,6 +3,7 @@ import { allSongs } from "./constants.js";
 import { AudioPlayer } from "./audioPlayer.js";
 import { UIManager } from "./uiManager.js";
 import { FileUploadManager } from "./fileUpload.js";
+import { MusicDownloader } from "./musicDownloader.js";
 import { VideoPlayer } from "./videoPlayer.js";
 import { BackgroundManager } from "./backgroundManager.js";
 
@@ -14,6 +15,7 @@ class MusicPlayerApp {
       this.audioPlayer,
       this.uiManager
     );
+    this.musicDownloader = new MusicDownloader(this.audioPlayer, this.uiManager);
     this.videoPlayer = new VideoPlayer();
     this.backgroundManager = new BackgroundManager();
 
