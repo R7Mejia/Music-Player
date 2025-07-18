@@ -5,7 +5,6 @@ import { UIManager } from "./uiManager.js";
 import { FileUploadManager } from "./fileUpload.js";
 import { VideoPlayer } from "./videoPlayer.js";
 import { BackgroundManager } from "./backgroundManager.js";
-import { MusicDownloader } from "./musicDownloader.js";
 
 class MusicPlayerApp {
   constructor() {
@@ -17,7 +16,6 @@ class MusicPlayerApp {
     );
     this.videoPlayer = new VideoPlayer();
     this.backgroundManager = new BackgroundManager();
-    this.musicDownloader = new MusicDownloader(this.audioPlayer, this.uiManager);
 
     this.init();
   }
@@ -125,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       en: {
         playlist: "Playlist",
         uploadMusic: "Upload Music",
+        downloadMusic: "Download Music",
         videos: "Videos",
         addYourMusic: "Add Your Music",
         uploadDesc: "Upload audio files from your device",
@@ -156,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       es: {
         playlist: "Lista de canciones",
         uploadMusic: "Subir música",
+        downloadMusic: "Descargar música",
         videos: "Videos",
         addYourMusic: "Agrega tu música",
         uploadDesc: "Sube archivos de audio desde tu dispositivo",
@@ -191,6 +191,8 @@ document.addEventListener("DOMContentLoaded", () => {
         translations[lang].playlist;
       document.querySelector('.tab-btn[data-tab="upload-tab"]').textContent =
         translations[lang].uploadMusic;
+      document.querySelector('.tab-btn[data-tab="download-tab"]').textContent =
+        translations[lang].downloadMusic;
       document.querySelector('.tab-btn[data-tab="video-tab"]').textContent =
         translations[lang].videos;
       // Playlist title
