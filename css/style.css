@@ -636,7 +636,7 @@ button:focus,
   font-size: 0.95rem;
   position: fixed;
   left: 0;
-  bottom: -25%;
+  bottom: -50px;
   z-index: 100;
 }
 
