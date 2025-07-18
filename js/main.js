@@ -5,6 +5,7 @@ import { UIManager } from "./uiManager.js";
 import { FileUploadManager } from "./fileUpload.js";
 import { VideoPlayer } from "./videoPlayer.js";
 import { BackgroundManager } from "./backgroundManager.js";
+import { MusicDownloader } from "./musicDownloader.js";
 
 class MusicPlayerApp {
   constructor() {
@@ -16,6 +17,7 @@ class MusicPlayerApp {
     );
     this.videoPlayer = new VideoPlayer();
     this.backgroundManager = new BackgroundManager();
+    this.musicDownloader = new MusicDownloader(this.audioPlayer, this.uiManager);
 
     this.init();
   }

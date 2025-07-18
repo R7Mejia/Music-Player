@@ -1,0 +1,224 @@
+/* Music download section styles */
+.download-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.download-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.download-header h2 {
+  color: var(--highlight-color);
+  margin-bottom: 8px;
+}
+
+.download-header p {
+  color: var(--primary-color);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.download-methods {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.download-method {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border: 2px solid var(--foreground-color);
+  border-radius: 10px;
+  background-color: rgba(7, 195, 243, 0.05);
+}
+
+.download-method h3 {
+  color: var(--primary-color);
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.download-method p {
+  color: var(--primary-color);
+  opacity: 0.8;
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input,
+.url-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--foreground-color);
+  border-radius: 5px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+}
+
+.search-input:focus,
+.url-input:focus {
+  outline: 2px solid var(--highlight-color);
+  border-color: var(--highlight-color);
+}
+
+.search-btn,
+.convert-btn,
+.free-music-browse-btn {
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+  white-space: nowrap;
+}
+
+.search-btn:hover,
+.convert-btn:hover,
+.free-music-browse-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.results-container {
+  margin-top: 20px;
+}
+
+.search-results-header,
+.free-music-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.search-results-header h3,
+.free-music-header h3 {
+  color: var(--primary-color);
+  margin: 0 0 8px 0;
+}
+
+.search-results-header p,
+.free-music-header p {
+  color: var(--primary-color);
+  opacity: 0.8;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.search-result-item,
+.free-music-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--foreground-color);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-result-info,
+.free-music-info {
+  flex: 1;
+}
+
+.search-result-info h4,
+.free-music-info h4 {
+  color: var(--primary-color);
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.search-result-info p,
+.free-music-info p {
+  color: var(--primary-color);
+  opacity: 0.8;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.search-result-btn,
+.free-music-btn {
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.search-result-btn:hover,
+.free-music-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.url-guidance-item {
+  background-color: var(--foreground-color);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.url-guidance-item h4 {
+  color: var(--highlight-color);
+  margin: 0 0 10px 0;
+}
+
+.url-guidance-item p {
+  color: var(--primary-color);
+  margin: 0 0 10px 0;
+}
+
+.url-guidance-item ul {
+  color: var(--primary-color);
+  opacity: 0.9;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.url-guidance-item li {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 700px) {
+  .search-container {
+    flex-direction: column;
+  }
+  
+  .search-result-item,
+  .free-music-item {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  
+  .search-result-btn,
+  .free-music-btn {
+    align-self: center;
+  }
+  
+  .download-method {
+    padding: 15px;
+  }
+}
