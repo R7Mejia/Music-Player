@@ -618,14 +618,13 @@ button:focus,
 .play-pause .icon-pause {
   display: inline;
 }
+
 .play-pause.playing .icon-play {
   display: none;
 }
+
 .play-pause:not(.playing) .icon-pause {
   display: none;
-}
-.play-pause svg {
-  fill: #fff !important;
 }
 
 .footer {
